@@ -91,6 +91,7 @@ hooks = [
       'python',
       'src/electron/script/apply_all_patches.py',
       'src/electron/patches/common/config.json',
+      'src/electron/patches/ppc64le/config.json',
     ],
   },
   {
