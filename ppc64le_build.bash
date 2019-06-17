@@ -40,7 +40,7 @@ mkdir -p electron-gn && cd electron-gn
 gclient config --name "src/electron" --unmanaged https://github.com/leo-lb/electron@electron-ppc64le
 gclient sync --with_branch_heads --with_tags
 
-REVISION=$(grep -Po "(?<=CLANG_SVN_REVISION = ')\d+(?=')" src/tools/clang/scripts/update.py)
+REVISION=$(grep -Po "(?<=CLANG_SVN_REVISION = ')\d+(?=')" src/tools/clang/scripts/update.py | head -n 1)
 
 svn checkout --force "https://llvm.org/svn/llvm-project/llvm/trunk@$REVISION" llvm
 svn checkout --force "https://llvm.org/svn/llvm-project/cfe/trunk@$REVISION" llvm/tools/clang
