@@ -19,8 +19,8 @@ tar -xJvf node-$VERSION-$DISTRO.tar.xz
 PATH=$(pwd)/node-$VERSION-$DISTRO/bin:$PATH
 
 git clone https://gn.googlesource.com/gn
-git checkout 81ee1967d3fcbc829bac1c005c3da59739c88df9
 cd gn
+git checkout 81ee1967d3fcbc829bac1c005c3da59739c88df9
 python build/gen.py
 ninja -C out
 cd ../
