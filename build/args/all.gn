@@ -20,3 +20,8 @@ enable_basic_printing = true
 angle_enable_vulkan_validation_layers = false
 
 is_cfi = false
+
+is_clang=true
+enable_nacl = false
+treat_warnings_as_errors = false
+enable_dav1d_decoder=false
