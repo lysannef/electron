@@ -25,12 +25,12 @@ python build/gen.py
 ninja -C out
 cd ../
 
-DEPOT_TOOLS_GN="$(pwd)/gn/out/gn"
+export DEPOT_TOOLS_GN="$(pwd)/gn/out/gn"
 
 git clone https://github.com/leo-lb/depot_tools
 git -C depot_tools checkout ppc64le
 
-DEPOT_TOOLS_UPDATE=0
+export DEPOT_TOOLS_UPDATE=0
 
 PATH="$PATH:$(pwd)/depot_tools"
 export VPYTHON_BYPASS="manually managed python not supported by chrome operations"
