@@ -21,12 +21,13 @@ vars = {
   'requests_version': 'e4d59bedfd3c7f4f254f4f5d036587bcd8152458',
 
   'boto_git': 'https://github.com/boto',
-  'chromium_git': 'https://github.com',
+  'chromium_git': 'https://chromium.googlesource.com',
   'electron_git': 'https://github.com/electron',
   # FIXME: Once https://github.com/nodejs/nan/pull/857 lands this should point at nodejs/nan
   'nodejs_git': 'https://github.com/marshallofsound',
   'requests_git': 'https://github.com/kennethreitz',
   'yaml_git': 'https://github.com/yaml',
+  'github_git': 'https://github.com',
 
   # KEEP IN SYNC WITH utils.js FILE
   'yarn_version': '1.15.2',
@@ -71,7 +72,7 @@ vars = {
 
 deps = {
   'src': {
-    'url': (Var("chromium_git")) + '/leo-lb/chromium.git@' + (Var("chromium_version")),
+    'url': (Var("github_git")) + '/leo-lb/chromium.git@' + (Var("chromium_version")),
     'condition': 'checkout_chromium and process_deps',
   },
   'src/third_party/nan': {
