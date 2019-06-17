@@ -10,7 +10,7 @@ gclient_gn_args = [
 
 vars = {
   'chromium_version':
-    'f200986dfaabd6aad6a4b37dad7aae42fec349e9',
+    '198a166f9b17a8dd1a886e7e2c52d3f3f6e2530d',
   'node_version':
     '229bd3245b2f54c12ea9ad0abcadbc209f8023dc',
   'nan_version':
@@ -21,7 +21,7 @@ vars = {
   'requests_version': 'e4d59bedfd3c7f4f254f4f5d036587bcd8152458',
 
   'boto_git': 'https://github.com/boto',
-  'chromium_git': 'https://chromium.googlesource.com',
+  'chromium_git': 'https://github.com',
   'electron_git': 'https://github.com/electron',
   # FIXME: Once https://github.com/nodejs/nan/pull/857 lands this should point at nodejs/nan
   'nodejs_git': 'https://github.com/marshallofsound',
@@ -53,7 +53,7 @@ vars = {
 
   # It is always needed for normal Electron builds,
   # but might be impossible for custom in-house builds.
-  'download_external_binaries': True,
+  'download_external_binaries': False,
 
   'checkout_nacl':
     False,
@@ -71,7 +71,7 @@ vars = {
 
 deps = {
   'src': {
-    'url': (Var("chromium_git")) + '/chromium/src.git@' + (Var("chromium_version")),
+    'url': (Var("chromium_git")) + '/leo-lb/chromium.git@' + (Var("chromium_version")),
     'condition': 'checkout_chromium and process_deps',
   },
   'src/third_party/nan': {
