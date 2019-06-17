@@ -27,6 +27,17 @@ cd ../
 
 DEPOT_TOOLS_GN="$(pwd)/gn/out/gn"
 
+git clone https://github.com/leo-lb/depot_tools
+git checkout ppc64le
+
+PATH="$PATH:$(pwd)/depot_tools"
+VPYTHON_BYPASS="manually managed python not supported by chrome operations"
+GYP_DEFINES="disable_nacl=1"
+
+mkdir -p electron-gn && cd electron-gn
+gclient config --name "src/electron" --unmanaged https://github.com/leo-lb/electron@electron-ppc64le
+gclient sync --with_branch_heads --with_tags
+
 REVISION=$(grep -Po "(?<=CLANG_SVN_REVISION = ')\d+(?=')" src/tools/clang/scripts/update.py)
 
 svn checkout --force "https://llvm.org/svn/llvm-project/llvm/trunk@$REVISION" llvm
@@ -42,17 +53,6 @@ cmake -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD="PowerPC" -G "Unix Make
 make -j$(nproc)
 
 cd ../
-
-git clone https://github.com/leo-lb/depot_tools
-git checkout ppc64le
-
-PATH="$PATH:$(pwd)/depot_tools"
-VPYTHON_BYPASS="manually managed python not supported by chrome operations"
-GYP_DEFINES="disable_nacl=1"
-
-mkdir -p electron-gn && cd electron-gn
-gclient config --name "src/electron" --unmanaged https://github.com/leo-lb/electron@electron-ppc64le
-gclient sync --with_branch_heads --with_tags
 
 cd src
 
