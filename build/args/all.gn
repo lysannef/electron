@@ -1,5 +1,5 @@
 is_electron_build = true
-use_jumbo_build = true
+use_jumbo_build = false
 root_extra_deps = [ "//electron" ]
 
 v8_promise_internal_field_count = 1
