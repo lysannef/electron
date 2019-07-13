@@ -37,7 +37,7 @@ export VPYTHON_BYPASS="manually managed python not supported by chrome operation
 export GYP_DEFINES="disable_nacl=1"
 
 mkdir -p electron-gn && cd electron-gn
-gclient config --name "src/electron" --unmanaged https://github.com/leo-lb/electron@electron-ppc64le-4.2.5
+gclient config --name "src/electron" --unmanaged https://github.com/leo-lb/electron@4-2-x
 gclient sync --with_branch_heads --with_tags --no-history
 
 REVISION=$(grep -Po "(?<=CLANG_REVISION = ')\d+(?=')" src/tools/clang/scripts/update.py | head -n 1)
