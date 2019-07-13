@@ -1,4 +1,4 @@
-image: ubuntu:bionic
+image: registry.gitlab.com/lle-bout/ungoogled-chromium-ci-docker-image/ppc64le:latest
 
 build:
     script:
