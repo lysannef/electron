@@ -2,7 +2,7 @@
 
 * Create an Ubuntu Bionic system with a standard install
 * Don't clone this repository beforehand, the build script will do it.
-* Download the build script at `https://raw.githubusercontent.com/leo-lb/electron/electron-ppc64le-4.2.5/ppc64le_build.bash`
+* Download the build script at `https://raw.githubusercontent.com/leo-lb/electron/4-2-x/ppc64le_build.bash`
 * Read the script if you like, to make sure it does not contain malware
 * Make it executable and then run it (e.g. `chmod +x ppc64le_build.bash && ./ppc64le_build.bash`)
 * Wait a good amount of time, it can take from one to four hours depending on your configuration.
