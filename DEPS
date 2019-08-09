@@ -10,7 +10,7 @@ gclient_gn_args = [
 
 vars = {
   'chromium_version':
-    '73.0.3683.121',
+    '44550dc52d98a2ec7c0b1a273d7e3e5cb042f88d',
   'node_version':
     '666c67e078bddc32f25409f4a929c1e9b5f47373',
 
@@ -24,6 +24,7 @@ vars = {
   'nodejs_git': 'https://github.com/nodejs',
   'requests_git': 'https://github.com/kennethreitz',
   'yaml_git': 'https://github.com/yaml',
+  'github_git': 'https://github.com',
 
   # To be able to build clean Chromium from sources.
   'apply_patches': True,
@@ -61,7 +62,7 @@ vars = {
 
 deps = {
   'src': {
-    'url': (Var("chromium_git")) + '/chromium/src.git@' + (Var("chromium_version")),
+    'url': (Var("github_git")) + '/leo-lb/chromium.git@' + (Var("chromium_version")),
     'condition': 'checkout_chromium',
   },
   'src/third_party/electron_node': {
