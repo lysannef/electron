@@ -1,0 +1,8 @@
+image: ubuntu:bionic
+
+build:
+    script:
+        - ./ppc64le_build.bash 
+    artifacts:
+        paths:
+            - "electron-gn/src/out/Release/dist.zip"
