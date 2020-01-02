@@ -87,7 +87,7 @@ deps = {
     'condition': 'checkout_requests',
   },
   'src/electron/patches/common/chromium_power': {
-    'url': 'https://github.com/leo-lb/chromium_power@c0c2649bc709c052749688999d5a25a1606705cd',
+    'url': 'https://github.com/leo-lb/chromium_power@2d431e11389a01c97065df0432988a50f127c05c',
   },
 }
 
