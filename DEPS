@@ -9,8 +9,8 @@ gclient_gn_args = [
 ]
 
 vars = {
-  'chromium_version':
-    '76.0.3809.146',
+  'chromium_version': # '76.0.3809.146',
+    '12f463da134983041c566bcbf9b2ee74390cfad0',
   'node_version':
     'v12.4.0',
 
@@ -19,7 +19,8 @@ vars = {
   'requests_version': 'e4d59bedfd3c7f4f254f4f5d036587bcd8152458',
 
   'boto_git': 'https://github.com/boto',
-  'chromium_git': 'https://chromium.googlesource.com',
+  # 'chromium_git': 'https://chromium.googlesource.com',
+  'github_git': 'https://github.com/leo-lb',
   'electron_git': 'https://github.com/electron',
   'nodejs_git': 'https://github.com/nodejs',
   'requests_git': 'https://github.com/kennethreitz',
@@ -67,7 +68,7 @@ vars = {
 
 deps = {
   'src': {
-    'url': (Var("chromium_git")) + '/chromium/src.git@' + (Var("chromium_version")),
+    'url': (Var("github_git")) + '/chromium.git@' + (Var("chromium_version")),
     'condition': 'checkout_chromium',
   },
   'src/third_party/electron_node': {
@@ -87,7 +88,7 @@ deps = {
     'condition': 'checkout_requests',
   },
   'src/electron/patches/common/chromium_power': {
-    'url': 'https://github.com/leo-lb/chromium_power@2d431e11389a01c97065df0432988a50f127c05c',
+    'url': (Var("github_git")) + 'chromium_power.git@' + '2d431e11389a01c97065df0432988a50f127c05c',
   },
 }
 
