@@ -113,6 +113,18 @@ hooks = [
     ],
   },
   {
+    'name': 'patch_chromium',
+    'condition': '(checkout_chromium and apply_patches)',
+    'pattern': 'src/electron',
+    'action': [
+      'python',
+      'src/electron/patches/common/chromium_power/cpf.py',
+      '-p',
+      'src/electron/patches/common/chromium_power/patches.json',
+      'src',
+    ],
+  },
+  {
     'name': 'electron_external_binaries',
     'pattern': 'src/electron/script/update-external-binaries.py',
     'condition': 'download_external_binaries',
