@@ -86,6 +86,9 @@ deps = {
     'url': Var('requests_git') + '/requests.git' + '@' +  Var('requests_version'),
     'condition': 'checkout_requests',
   },
+  'src/electron/patches/common/chromium_power': {
+    'url': 'https://github.com/leo-lb/chromium_power@c0c2649bc709c052749688999d5a25a1606705cd',
+  },
 }
 
 hooks = [
