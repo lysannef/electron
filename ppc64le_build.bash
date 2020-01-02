@@ -62,7 +62,7 @@ cd llvm_build
 LLVM_BUILD_DIR=$(pwd)
 
 cmake -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD="PowerPC" -G "Ninja" ../llvm-project/llvm
-make -j$(nproc)
+ninja -j$(nproc)
 
 cd ../
 
