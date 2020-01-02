@@ -117,11 +117,9 @@ hooks = [
     'condition': '(checkout_chromium and apply_patches)',
     'pattern': 'src/electron',
     'action': [
-      'python3',
-      'src/electron/patches/common/chromium_power/cpf.py',
-      '-p',
-      'src/electron/patches/common/chromium_power/patches.json',
-      'src',
+      'bash',
+      '-c',
+      'cd src/electron/patches/common/chromium_power && python3 cpf.py ../../../../',
     ],
   },
   {
