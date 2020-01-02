@@ -20,3 +20,5 @@ enable_basic_printing = true
 angle_enable_vulkan_validation_layers = false
 
 is_cfi = false
+
+treat_warnings_as_errors = false
