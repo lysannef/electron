@@ -88,7 +88,7 @@ deps = {
     'condition': 'checkout_requests',
   },
   'src/electron/patches/common/chromium_power': {
-    'url': (Var("github_git")) + 'chromium_power.git@' + '2d431e11389a01c97065df0432988a50f127c05c',
+    'url': (Var("github_git")) + '/chromium_power.git@' + '2d431e11389a01c97065df0432988a50f127c05c',
   },
 }
 
