@@ -40,18 +40,28 @@ mkdir -p electron-gn && cd electron-gn
 gclient config --name "src/electron" --unmanaged https://github.com/leo-lb/electron@ppc64le-6-1-x
 gclient sync --with_branch_heads --with_tags --no-history
 
-REVISION=$(grep -Po "(?<=CLANG_REVISION = ')\d+(?=')" src/tools/clang/scripts/update.py | head -n 1)
+REVISION=$(grep -Po "(?<=CLANG_REVISION = ')\w+(?=')" src/tools/clang/scripts/update.py)
 
-svn checkout --force "https://llvm.org/svn/llvm-project/llvm/trunk@$REVISION" llvm
-svn checkout --force "https://llvm.org/svn/llvm-project/cfe/trunk@$REVISION" llvm/tools/clang
-svn checkout --force "https://llvm.org/svn/llvm-project/compiler-rt/trunk@$REVISION" llvm/compiler-rt
+if [ -d "llvm-project" ]; then
+    cd llvm-project
+    git add -A
+    git status
+    git reset --hard HEAD
+    git fetch
+    git status
+    cd ../
+else
+    git clone https://github.com/llvm/llvm-project.git
+fi
+
+git -C llvm-project checkout "${REVISION}"
 
 mkdir -p llvm_build
 cd llvm_build
 
 LLVM_BUILD_DIR=$(pwd)
 
-cmake -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD="PowerPC" -G "Unix Makefiles" ../llvm
+cmake -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD="PowerPC" -G "Ninja" ../llvm-project
 make -j$(nproc)
 
 cd ../
