@@ -40,7 +40,7 @@ mkdir -p electron-gn && cd electron-gn
 gclient config --name "src/electron" --unmanaged https://github.com/leo-lb/electron@ppc64le-6-1-x
 gclient sync --with_branch_heads --with_tags --no-history
 
-REVISION=$(grep -Po "(?<=CLANG_REVISION = ')\w+(?=')" src/tools/clang/scripts/update.py)
+REVISION=$(grep -Po "(?<=CLANG_REVISION = ')\w+(?=')" src/tools/clang/scripts/update.py | head -n 1)
 
 if [ -d "llvm-project" ]; then
     cd llvm-project
