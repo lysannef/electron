@@ -120,7 +120,7 @@ hooks = [
     'action': [
       'bash',
       '-c',
-      'cd src/electron/patches/common/chromium_power && python cpf.py ../../../../',
+      'cd src/electron/patches/common/chromium_power && sed -i 's/patch_path, "r"/patch_path, "r", encoding="utf-8"/g' cpf.py && sed -i 's/fil, "r"/fil, "r", encoding="utf-8"/g' cpf.py && python3 cpf.py ../../../../',
     ],
   },
   {
